@@ -6,20 +6,25 @@ const Greeting = (props) => {
     if (props.currentUser) {
 
         return (
-            <div>Welcome {props.currentUser.username}!
+            <div>Hi {props.currentUser.username}!
         <br />
                 <button onClick={() => (props.logout())}>Log Out</button>
             </div>
         )
     } else {
         return (
-            <div>Not signed in!
-                <br />
-                <Link to='/signup'>Sign Up</Link>
-                <br />
-                <Link to='/login'>Sign In</Link>
-                <br />
-            </div>
+            // <div>Not signed in!
+            //     <br />
+            //     <Link to='/signup'>Sign Up</Link>
+            //     <br />
+            //     <Link to='/login'>Sign In</Link>
+            //     <br />
+            // </div>
+            <nav className="login-signup">
+                <button onClick={() => props.openModal('login')}>SIGN IN</button>
+                &nbsp;or&nbsp;
+                <button onClick={() => props.openModal('signup')}>SIGN UP</button>
+            </nav>
         )
     }
 }
