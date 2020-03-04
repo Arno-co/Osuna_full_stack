@@ -8,7 +8,7 @@ const Greeting = (props) => {
         return (
             <div>Welcome {props.currentUser.username}!
         <br />
-                <button onClick={() => (this.props.logout())}>Log Out</button>
+                <button onClick={() => (props.logout())}>Log Out</button>
             </div>
         )
     } else {
