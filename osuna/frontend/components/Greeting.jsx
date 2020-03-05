@@ -8,7 +8,7 @@ const Greeting = (props) => {
         return (
             <div>Hi {props.currentUser.username}!
         <br />
-                <button onClick={() => (props.logout())}>Log Out</button>
+                <button onClick={() => (props.logout())}>LOG OUT</button>
             </div>
         )
     } else {
@@ -21,7 +21,7 @@ const Greeting = (props) => {
             //     <br />
             // </div>
             <nav className="login-signup">
-                <button onClick={() => props.openModal('login')}>SIGN IN</button>
+                <button onClick={() => props.openModal('login')}>LOG IN</button>
                 &nbsp;or&nbsp;
                 <button onClick={() => props.openModal('signup')}>SIGN UP</button>
             </nav>

@@ -20,8 +20,9 @@ class SessionForm extends React.Component {
     addUsername() {
         if (this.props.formType === 'SIGN UP') {
             return (<>
-                <label>Username:
-                            <input type="text" value={this.state.username} onChange={this.update('username')} />
+                <label className='login-signup-label'>Username:
+                    <br/>
+                    <input className='login-signup-field' placeholder="username" type="text" value={this.state.username} onChange={this.update('username')} />
                 </label>
             </>)
         } 
@@ -30,43 +31,58 @@ class SessionForm extends React.Component {
         }
     }
     
-    addLink() {
-        if (this.props.formType === 'SIGN IN') {
-            return (<>
-                <br/>
-                <Link to="/signup">SIGN UP INSTEAD</Link>
-                </>)
-        } else {
-            return (<>
-            <br/>
-                <Link to="/login">SIGN IN INSTEAD</Link>
-            </>)
-        }
+    // addLink() {
+    //     if (this.props.formType === 'SIGN IN') {
+    //         return (<>
+    //             <br/>
+    //             <Link to="/signup">SIGN UP INSTEAD</Link>
+    //             </>)
+    //     } else {
+    //         return (<>
+    //         <br/>
+    //             <Link to="/login">SIGN IN INSTEAD</Link>
+    //         </>)
+    //     }
+    // }
+    
+    renderErrors() {
+        return(
+        <ul>{
+            this.props.errors.map((error, i) => (
+            <li key={`error=${i}`}>{error}</li>
+            ))
+            }</ul>
+        )
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(() => this.props.closeModal(), () => this.renderErrors())
     }
+
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form className='login-signup-form' onSubmit={this.handleSubmit}>
                 <h1>{this.props.formType}</h1>
+                <br/>
                 <br/>
                 {this.addUsername()}
                 <br/>
-                <label>Email:
-                    <input type="text" value={this.state.email} onChange={this.update('email')}/>
+                <label className='login-signup-label'>Email:
+                    <br/>
+                    <input className='login-signup-field' type="text" placeholder="name@company.com" value={this.state.email} onChange={this.update('email')}/>
                 </label>
                 <br/>
-                <label>Password:
-                    <input type="password" value={this.state.password} onChange={this.update('password')}/>
+                <label className='login-signup-label'>Password:
+                    <br/>
+                    <input className='login-signup-field' type="password" placeholder="password" value={this.state.password} onChange={this.update('password')}/>
                 </label>
                 <br/>
-                <input type="submit" value={this.props.formType}/>
-                {this.addLink()}
+                {this.renderErrors()}
+                <input className='login-signup-button' type="submit" value={this.props.formType} />
+                {/* {this.addLink()} */}
             </form>
         )
     }

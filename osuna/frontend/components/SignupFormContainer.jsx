@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { openModal, closeModal } from '../actions/modal_actions'
 
 const mSTP = (state, ownProps) => ({
-    errors: Object.values(state.errors),
+    errors: state.errors.session,
     formType: 'SIGN UP'
 })
 

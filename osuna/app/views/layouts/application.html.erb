@@ -8,13 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:500,700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    
     <% if current_user%>
-
-    <script>
-      window.currentUser = { 'id': <%= current_user.id %>,
-       'username': '<%= current_user.username %>'}
-    </script>
-    <% end %>
+      <script>
+        window.currentUser = { 'id': <%= current_user.id %>,
+          'username': '<%= current_user.username %>' }
+      </script>
+      <% end %>
   </head>
 
   <body>
