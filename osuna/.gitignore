@@ -1,5 +1,6 @@
 node_modules/
 bundle.js
+/bundle.js*
 bundle.js.map
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 # config/initializers/secret_token.rb
@@ -8,7 +9,7 @@ config/initializers/secret_token.rb
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-!/log/.keep
+/log/.keep
 !/tmp/.keep
 ## Environment normalization:
 /.bundle
@@ -23,6 +24,12 @@ config/initializers/secret_token.rb
 /public/packs-test
 /public/assets
 /tmp
+.DS_Store
+npm-debug.log
+/config/master.key
+/yarn-error.log/public/assets
+
+
 
 
 
